@@ -60,7 +60,11 @@ class AppController extends Controller
             'unauthorizedRedirect' => $this->referer()
         ]);
 
+        if ($this->Auth->user() && $this->Auth->user()['role_id'] === 1) {
+            $this->Auth->allow(['index', 'view', 'add', 'edit']);
+        } else {
             $this->Auth->allow(['display']);
+        }
 
         /*
          * Enable the following components for recommended CakePHP security settings.
