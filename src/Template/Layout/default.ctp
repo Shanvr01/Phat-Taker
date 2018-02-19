@@ -53,5 +53,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </div>
     <footer>
     </footer>
+
+    <?= $this->Html->script('vue.js') ?>
+
 </body>
 </html>
