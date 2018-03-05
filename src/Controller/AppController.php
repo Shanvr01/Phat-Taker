@@ -66,6 +66,8 @@ class AppController extends Controller
             $this->Auth->allow(['display']);
         }
 
+        $this->set('loggedIn', $this->Auth->user());
+
         /*
          * Enable the following components for recommended CakePHP security settings.
          * see https://book.cakephp.org/3.0/en/controllers/components/security.html

@@ -42,6 +42,7 @@ $cakeDescription = 'Phat Taker: the rapid fat loss framework';
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('cake.css') ?>
     <?= $this->Html->css('home.css') ?>
+    <?= $this->Html->css('app.css') ?>
     <link href="https://fonts.googleapis.com/css?family=Raleway:500i|Roboto:300,400,700|Roboto+Mono" rel="stylesheet">
 </head>
 <body class="home">
@@ -54,13 +55,19 @@ $cakeDescription = 'Phat Taker: the rapid fat loss framework';
 </header>
 
 <div class="row">
-    <div class="small-12 medium-6 columns text-center">
-        <?= $this->Html->link('Register', '/users/add') ?>
-    </div>
+    <?php if($loggedIn): ?>
+        <div class="small-12 medium-6 columns text-center">
+            I am logged in bro! 
+        </div>
+    <?php else: ?>
+        <div class="small-12 medium-6 columns text-center">
+            <?= $this->Html->link('Register', '/users/add') ?>
+        </div>
 
-    <div class="small-12 medium-6 columns text-center">
-        <?= $this->Html->link('Login', '/users/login') ?>
-    </div>
+        <div class="small-12 medium-6 columns text-center">
+            <?= $this->Html->link('Login', '/users/login') ?>
+        </div>
+    <?php endif; ?>
 </div>
 
 <div class="row">
@@ -68,7 +75,7 @@ $cakeDescription = 'Phat Taker: the rapid fat loss framework';
     <hr />
 </div>
 
-<?= $this->Html->script('vue.js') ?>
+<?= $this->Html->script('app.js') ?>
 
 </body>
 </html>

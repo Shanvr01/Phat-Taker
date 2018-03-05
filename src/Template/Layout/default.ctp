@@ -28,6 +28,7 @@ $cakeDescription = 'Phat Taker: the rapid fat loss framework';
 
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('cake.css') ?>
+    <?= $this->Html->css('app.css') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
@@ -54,7 +55,7 @@ $cakeDescription = 'Phat Taker: the rapid fat loss framework';
     <footer>
     </footer>
 
-    <?= $this->Html->script('vue.js') ?>
+    <?= $this->Html->script('app.js') ?>
 
 </body>
 </html>
