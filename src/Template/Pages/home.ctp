@@ -56,8 +56,16 @@ $cakeDescription = 'Phat Taker: the rapid fat loss framework';
 
 <div class="row">
     <?php if($loggedIn): ?>
-        <div class="small-12 medium-6 columns text-center">
-            I am logged in bro! 
+        <div class="small-12 columns text-center">
+            <h2>Programs</h2>
+
+            <div class="row">
+                <?php foreach($programs as $program): ?>
+                    <div class="small-12 medium-6 large-4 columns program-blocks">
+
+                    </div>
+                <?php endforeach; ?>
+            </div>
         </div>
     <?php else: ?>
         <div class="small-12 medium-6 columns text-center">
