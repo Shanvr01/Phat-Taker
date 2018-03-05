@@ -76,6 +76,6 @@ class AppController extends Controller
 
     public function isAuthorized($user)
     {
-        return false;
+        return ($this->Auth->user()['role_id'] === 1);
     }
 }

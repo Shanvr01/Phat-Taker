@@ -27,7 +27,7 @@ if (!Configure::read('debug')) :
     );
 endif;
 
-$cakeDescription = 'CakePHP: the rapid development PHP framework';
+$cakeDescription = 'Phat Taker: the rapid fat loss framework';
 ?>
 <!DOCTYPE html>
 <html>
@@ -46,7 +46,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 </head>
 <body class="home">
 
-<header class="row">
+<header class="header">
     <div class="header-image"><?= $this->Html->image('phat-taker.jpg') ?></div>
     <div class="header-title">
         <h1>Welcome to Phat Taker.</h1>
