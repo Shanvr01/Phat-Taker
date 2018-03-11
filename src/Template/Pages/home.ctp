@@ -62,7 +62,7 @@ $cakeDescription = 'Phat Taker: the rapid fat loss framework';
             <div class="row">
                 <?php foreach($programs as $program): ?>
                     <div class="small-12 medium-6 large-4 columns program-blocks">
-
+                        This is a program
                     </div>
                 <?php endforeach; ?>
             </div>

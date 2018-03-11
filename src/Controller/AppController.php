@@ -63,7 +63,7 @@ class AppController extends Controller
         if ($this->Auth->user() && $this->Auth->user()['role_id'] === 1) {
             $this->Auth->allow(['index', 'view', 'add', 'edit']);
         } else {
-            $this->Auth->allow(['display']);
+            $this->Auth->allow(['display', 'home']);
         }
 
         $this->set('loggedIn', $this->Auth->user());
@@ -76,7 +76,7 @@ class AppController extends Controller
         //$this->loadComponent('Csrf');
     }
 
-    public function isAuthorized($user)
+    public function isAuthorized()
     {
         return ($this->Auth->user()['role_id'] === 1);
     }
