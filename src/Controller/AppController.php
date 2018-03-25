@@ -61,7 +61,7 @@ class AppController extends Controller
         ]);
 
         if ($this->Auth->user() && $this->Auth->user()['role_id'] === 1) {
-            $this->Auth->allow(['index', 'view', 'add', 'edit']);
+            $this->Auth->allow();
         } else {
             $this->Auth->allow(['display', 'home']);
         }
