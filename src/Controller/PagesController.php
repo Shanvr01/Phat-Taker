@@ -66,4 +66,14 @@ class PagesController extends AppController
             throw new NotFoundException();
         }
     }
+
+    public function home()
+    {
+        $this->loadModel('Programs');
+
+        $programs = $this->Programs->findByClientId($this->Auth->user('id'))
+            ->limit(5);
+
+        $this->set(compact('programs', $programs));
+    }
 }

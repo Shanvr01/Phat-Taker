@@ -61,10 +61,12 @@ class AppController extends Controller
         ]);
 
         if ($this->Auth->user() && $this->Auth->user()['role_id'] === 1) {
-            $this->Auth->allow(['index', 'view', 'add', 'edit']);
+            $this->Auth->allow();
         } else {
-            $this->Auth->allow(['display']);
+            $this->Auth->allow(['display', 'home']);
         }
+
+        $this->set('loggedIn', $this->Auth->user());
 
         /*
          * Enable the following components for recommended CakePHP security settings.
@@ -74,8 +76,8 @@ class AppController extends Controller
         //$this->loadComponent('Csrf');
     }
 
-    public function isAuthorized($user)
+    public function isAuthorized()
     {
-        return false;
+        return ($this->Auth->user()['role_id'] === 1);
     }
 }

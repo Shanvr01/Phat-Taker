@@ -27,7 +27,7 @@ if (!Configure::read('debug')) :
     );
 endif;
 
-$cakeDescription = 'CakePHP: the rapid development PHP framework';
+$cakeDescription = 'Phat Taker: the rapid fat loss framework';
 ?>
 <!DOCTYPE html>
 <html>
@@ -42,11 +42,12 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('cake.css') ?>
     <?= $this->Html->css('home.css') ?>
+    <?= $this->Html->css('app.css') ?>
     <link href="https://fonts.googleapis.com/css?family=Raleway:500i|Roboto:300,400,700|Roboto+Mono" rel="stylesheet">
 </head>
 <body class="home">
 
-<header class="row">
+<header class="header">
     <div class="header-image"><?= $this->Html->image('phat-taker.jpg') ?></div>
     <div class="header-title">
         <h1>Welcome to Phat Taker.</h1>
@@ -54,19 +55,35 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 </header>
 
 <div class="row">
-    <div class="small-12 medium-6 columns text-center">
-        <?= $this->Html->link('Register', '/users/add') ?>
-    </div>
+    <?php if($loggedIn): ?>
+        <div class="small-12 columns text-center">
+            <h2>Programs</h2>
 
-    <div class="small-12 medium-6 columns text-center">
-        <?= $this->Html->link('Login', '/users/login') ?>
-    </div>
+            <div class="row">
+                <?php foreach($programs as $program): ?>
+                    <div class="small-12 medium-6 large-4 columns program-blocks">
+                        This is a program
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    <?php else: ?>
+        <div class="small-12 medium-6 columns text-center">
+            <?= $this->Html->link('Register', '/users/add') ?>
+        </div>
+
+        <div class="small-12 medium-6 columns text-center">
+            <?= $this->Html->link('Login', '/users/login') ?>
+        </div>
+    <?php endif; ?>
 </div>
 
 <div class="row">
 
     <hr />
 </div>
+
+<?= $this->Html->script('app.js') ?>
 
 </body>
 </html>
