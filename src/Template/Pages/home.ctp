@@ -48,7 +48,7 @@ $cakeDescription = 'Phat Taker: the rapid fat loss framework';
 <body class="home">
 
 <header class="header">
-    <div class="header-image"><?= $this->Html->image('phat-taker.jpg') ?></div>
+    <div class="header-image logo" style="max-width: 100px; padding: 15px 0;"><?= $this->Html->image('phat_taker_logo.png') ?></div>
     <div class="header-title">
         <h1>Welcome to Phat Taker.</h1>
     </div>
@@ -61,8 +61,13 @@ $cakeDescription = 'Phat Taker: the rapid fat loss framework';
 
             <div class="row">
                 <?php foreach($programs as $program): ?>
-                    <div class="small-12 medium-6 large-4 columns program-blocks">
-                        This is a program
+                    <div class="small-12 medium-6 large-4 columns end">
+                        <div class="program-blocks" style="border-radius:5px; box-shadow:2px 2px 4px #c3c3c3;">
+                            <h3><?= $program['title'] ?></h3>
+                            
+                            <p>Primary objective:</p>
+                            <?= $program['description'] ?>
+                        </div>
                     </div>
                 <?php endforeach; ?>
             </div>
