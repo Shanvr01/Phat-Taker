@@ -45,11 +45,19 @@ class UsersTable extends Table
             'foreignKey' => 'role_id',
             'joinType' => 'INNER'
         ]);
-        $this->belongsToMany('Programs', [
-            'foreignKey' => 'user_id',
-            'targetForeignKey' => 'program_id',
-            'joinTable' => 'users_programs'
+        $this->hasMany('Programs', [
+            'foreignKey' => 'client_id',
+            'className' => 'Programs'
         ]);
+        $this->hasMany('Programs', [
+            'foreignKey' => 'trainer_id',
+            'className' => 'Programs'
+        ]);
+        // $this->belongsToMany('Programs', [
+        //     'foreignKey' => 'user_id',
+        //     'targetForeignKey' => 'program_id',
+        //     'joinTable' => 'users_programs'
+        // ]);
     }
 
     /**

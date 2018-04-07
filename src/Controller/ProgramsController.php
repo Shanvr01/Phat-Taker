@@ -35,7 +35,7 @@ class ProgramsController extends AppController
     public function view($id = null)
     {
         $program = $this->Programs->get($id, [
-            'contain' => ['Users', 'Workouts']
+            'contain' => ['Trainers', 'Clients', 'Workouts']
         ]);
 
         $this->set('program', $program);
@@ -58,8 +58,23 @@ class ProgramsController extends AppController
             }
             $this->Flash->error(__('The program could not be saved. Please, try again.'));
         }
-        $users = $this->Programs->Users->find('list', ['limit' => 200]);
-        $this->set(compact('program', 'users'));
+        $trainers = $this->Programs->Trainers->find('list', [
+            'limit' => 200,
+            'keyField' => 'id',
+            'valueField' => 'first_name'
+        ])->where([
+            'role_id' => 1
+        ])->toArray();
+
+        $athletes = $this->Programs->Clients->find('list', [
+            'limit' => 200,
+            'keyField' => 'id',
+            'valueField' => 'first_name'
+        ])->where([
+            'role_id' => 3
+        ])->toArray();
+
+        $this->set(compact('program', 'trainers', 'athletes'));
     }
 
     /**
@@ -83,8 +98,23 @@ class ProgramsController extends AppController
             }
             $this->Flash->error(__('The program could not be saved. Please, try again.'));
         }
-        $users = $this->Programs->Users->find('list', ['limit' => 200]);
-        $this->set(compact('program', 'users'));
+        $trainers = $this->Programs->Trainers->find('list', [
+            'limit' => 200,
+            'keyField' => 'id',
+            'valueField' => 'first_name'
+        ])->where([
+            'role_id' => 1
+        ])->toArray();
+
+        $athletes = $this->Programs->Clients->find('list', [
+            'limit' => 200,
+            'keyField' => 'id',
+            'valueField' => 'first_name'
+        ])->where([
+            'role_id' => 3
+        ])->toArray();
+
+        $this->set(compact('program', 'trainers', 'athletes'));
     }
 
     /**
