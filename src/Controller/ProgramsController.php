@@ -71,7 +71,7 @@ class ProgramsController extends AppController
             'keyField' => 'id',
             'valueField' => 'first_name'
         ])->where([
-            'role_id' => 3
+            'role_id' => 2
         ])->toArray();
 
         $this->set(compact('program', 'trainers', 'athletes'));

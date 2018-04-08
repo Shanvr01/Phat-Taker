@@ -53,11 +53,11 @@ class UsersTable extends Table
             'foreignKey' => 'trainer_id',
             'className' => 'Programs'
         ]);
-        // $this->belongsToMany('Programs', [
-        //     'foreignKey' => 'user_id',
-        //     'targetForeignKey' => 'program_id',
-        //     'joinTable' => 'users_programs'
-        // ]);
+        $this->belongsToMany('Programs', [
+            'foreignKey' => 'user_id',
+            'targetForeignKey' => 'program_id',
+            'joinTable' => 'users_programs'
+        ]);
     }
 
     /**

@@ -69,11 +69,32 @@ class PagesController extends AppController
 
     public function home()
     {
-        $this->loadModel('Programs');
+        $isTrainer = false;
 
-        $programs = $this->Programs->findByClientId($this->Auth->user('id'))
-            ->limit(5);
+        if($this->Auth->user('role_id') === 1)
+        {
+            $this->loadModel('Users');
+            
+            $athletes = $this->Users->find('all')
+                ->where(['role_id' => 2]);
 
-        $this->set(compact('programs', $programs));
+            $isTrainer = true;
+
+            $this->set([
+                'athletes' => $athletes,
+                'isTrainer' => $isTrainer
+            ]);
+        }
+        else
+        {
+            $this->loadModel('Programs');
+
+            $programs = $this->Programs->findByClientId($this->Auth->user('id'));
+
+            $this->set([
+                'programs' => $programs,
+                'isTrainer' => $isTrainer
+            ]);
+        }
     }
 }

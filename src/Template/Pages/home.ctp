@@ -61,27 +61,50 @@ $cakeDescription = 'Phat Taker: the rapid fat loss framework';
 
 <div class="row">
     <?php if($loggedIn): ?>
-        <div class="small-12 columns text-center">
-            <h2>Programs</h2>
 
-            <div class="row">
-                <?php foreach($programs as $program): ?>
-                    <div class="small-12 medium-6 large-4 columns end">
-                        <div class="program-blocks">
-                            <h3>
-                                <?= $program['title'] ?>
-                                <div class="line"></div>
-                            </h3>
-                            
-                            <p>Primary objective:</p>
-                            <p><?= $program['description'] ?></p>
+        <?php if($isTrainer): ?>
+            <div class="small-12 columns text-center">
+                <h2>Athletes</h2>
 
-                            <?= $this->Html->link('View program', ['controller' => 'programs', 'action' => 'view', $program['id']], array('class' => 'button')) ?>
+                <div class="row">
+                    <?php foreach($athletes as $athlete): ?>
+                        <div class="small-12 medium-6 large-4 columns end">
+                            <div class="program-blocks">
+                                <h3>
+                                    <?= $athlete['first_name'] ?> <?= $athlete['last_name'] ?>
+                                    <div class="line"></div>
+                                </h3>
+
+                                <?= $this->Html->link('View athlete details', ['controller' => 'users', 'action' => 'view', $athlete['id']], array('class' => 'button')) ?>
+                            </div>
                         </div>
-                    </div>
-                <?php endforeach; ?>
+                    <?php endforeach; ?>
+                </div>
             </div>
-        </div>
+        <?php else: ?>        
+            <div class="small-12 columns text-center">
+                <h2>Programs</h2>
+
+                <div class="row">
+                    <?php foreach($programs as $program): ?>
+                        <div class="small-12 medium-6 large-4 columns end">
+                            <div class="program-blocks">
+                                <h3>
+                                    <?= $program['title'] ?>
+                                    <div class="line"></div>
+                                </h3>
+                                
+                                <p>Primary objective:</p>
+                                <p><?= $program['description'] ?></p>
+
+                                <?= $this->Html->link('View program', ['controller' => 'programs', 'action' => 'view', $program['id']], array('class' => 'button')) ?>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        <?php endif; ?>
+        
     <?php else: ?>
         <div class="small-12 medium-6 columns text-center">
             <?= $this->Html->link('Register', '/users/add') ?>
