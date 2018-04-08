@@ -27,9 +27,9 @@
         <?php
             echo $this->Form->control('title');
             echo $this->Form->control('description');
-            echo $this->Form->control('trainer_id');
-            echo $this->Form->control('client_id');
-            echo $this->Form->control('users._ids', ['options' => $users]);
+            echo $this->Form->input('trainer_id', ['type' => 'select', 'empty' => '-- Select Trainer --', 'options' => $trainers]);
+            echo $this->Form->input('client_id', ['type' => 'select', 'empty' => '-- Select Athlete --', 'options' => $athletes]);
+            // echo $this->Form->control('users._ids', ['options' => $users]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
