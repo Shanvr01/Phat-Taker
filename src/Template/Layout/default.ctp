@@ -37,7 +37,12 @@ $cakeDescription = 'Phat Taker: the rapid fat loss framework';
 <body>
 
     <header class="header">
-        <div class="header-image logo row"><?= $this->Html->image('phat_taker_logo.png') ?></div>
+        <div class="header-image logo">
+            <?= $this->Html->link(
+                    $this->Html->image('phat_taker_logo.png'), '/', array('escape' => false)
+                );
+            ?>
+        </div>
     </header>
     <nav class="top-bar expanded" data-topbar role="navigation">
         <ul class="title-area large-3 medium-4 columns">
