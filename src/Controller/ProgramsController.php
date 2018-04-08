@@ -122,7 +122,7 @@ class ProgramsController extends AppController
         $id = $this->request->getParam('pass.0');
         $program = $this->Programs->get($id);
 
-        if ($program->user_id == $user['id']) {
+        if ($program->client_id == $user['id']) {
             return true;
         }
 

@@ -1,20 +1,46 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\Shan\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js init
+  /usr/local/bin/node /usr/share/yarn/bin/yarn.js install gulp
 
 PATH: 
-  C:\Users\Shan\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\Shan\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\xampp\php;C:\ProgramData\ComposerSetup\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs;C:\Program Files\Microsoft VS Code\bin;C:\Users\Shan\AppData\Roaming\Composer\vendor\bin;C:\Users\Shan\AppData\Roaming\npm;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
+  /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
 
 Yarn version: 
   1.5.1
 
 Node version: 
-  9.7.1
+  9.9.0
 
 Platform: 
-  win32 x64
+  linux x64
 
 npm manifest: 
-  No manifest
+  {
+    "name": "phat_taker",
+    "version": "1.0.0",
+    "description": "Compile sass and js",
+    "main": "app.js",
+    "directories": {
+      "test": "tests"
+    },
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": "git+https://Shanvr01@bitbucket.org/Shanvr01/phat_taker.git",
+    "author": "shan van rensburg",
+    "license": "ISC",
+    "homepage": "https://bitbucket.org/Shanvr01/phat_taker#readme",
+    "dependencies": {
+      "yarn": "^1.5.1"
+    },
+    "devDependencies": {
+      "gulp": "^3.9.1",
+      "gulp-autoprefixer": "^5.0.0",
+      "gulp-concat": "^2.6.1",
+      "gulp-minify-css": "^1.2.4",
+      "gulp-sass": "^3.1.0",
+      "gulp-uglify": "^3.0.0"
+    }
+  }
 
 yarn manifest: 
   No manifest
@@ -23,11 +49,10 @@ Lockfile:
   No lockfile
 
 Trace: 
-  Error: Can't answer a question unless a user TTY
-      at ConsoleReporter.question (C:\Users\Shan\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:92962:59)
-      at Object.<anonymous> (C:\Users\Shan\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:85927:38)
+  Error: `install` has been replaced with `add` to add new dependencies. Run "yarn add gulp" instead.
+      at new MessageError (/usr/share/yarn/lib/cli.js:186:110)
+      at Object.<anonymous> (/usr/share/yarn/lib/cli.js:21987:13)
       at Generator.next (<anonymous>)
-      at step (C:\Users\Shan\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:98:30)
-      at C:\Users\Shan\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:109:13
+      at step (/usr/share/yarn/lib/cli.js:98:30)
+      at /usr/share/yarn/lib/cli.js:109:13
       at <anonymous>
-      at process._tickCallback (internal/process/next_tick.js:118:7)

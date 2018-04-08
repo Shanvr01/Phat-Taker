@@ -35,6 +35,10 @@ $cakeDescription = 'Phat Taker: the rapid fat loss framework';
     <?= $this->fetch('script') ?>
 </head>
 <body>
+
+    <header class="header">
+        <div class="header-image logo row"><?= $this->Html->image('phat_taker_logo.png') ?></div>
+    </header>
     <nav class="top-bar expanded" data-topbar role="navigation">
         <ul class="title-area large-3 medium-4 columns">
             <li class="name">
@@ -43,11 +47,14 @@ $cakeDescription = 'Phat Taker: the rapid fat loss framework';
         </ul>
         <div class="top-bar-section">
             <ul class="right">
-                <li><a target="_blank" href="https://book.cakephp.org/3.0/">Documentation</a></li>
-                <li><a target="_blank" href="https://api.cakephp.org/3.0/">API</a></li>
+                <?php if($loggedIn): ?>
+                    <li><a href="/users/logout">Sign Out</a></li>
+                <?php else: ?>
+                    <li><a href="/users/login">Sign In</a></li>
+                <?php endif; ?>            
             </ul>
         </div>
-    </nav>
+    </nav> 
     <?= $this->Flash->render() ?>
     <div class="container clearfix">
         <?= $this->fetch('content') ?>

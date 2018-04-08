@@ -76,7 +76,7 @@ class AppController extends Controller
         //$this->loadComponent('Csrf');
     }
 
-    public function isAuthorized()
+    public function isAuthorized($user)
     {
         return ($this->Auth->user()['role_id'] === 1);
     }

@@ -48,7 +48,7 @@ $cakeDescription = 'Phat Taker: the rapid fat loss framework';
 <body class="home">
 
 <header class="header">
-    <div class="header-image logo" style="max-width: 100px; padding: 15px 0;"><?= $this->Html->image('phat_taker_logo.png') ?></div>
+    <div class="header-image logo"><?= $this->Html->image('phat_taker_logo.png') ?></div>
     <div class="header-title">
         <h1>Welcome to Phat Taker.</h1>
     </div>
@@ -62,11 +62,16 @@ $cakeDescription = 'Phat Taker: the rapid fat loss framework';
             <div class="row">
                 <?php foreach($programs as $program): ?>
                     <div class="small-12 medium-6 large-4 columns end">
-                        <div class="program-blocks" style="border-radius:5px; box-shadow:2px 2px 4px #c3c3c3;">
-                            <h3><?= $program['title'] ?></h3>
+                        <div class="program-blocks">
+                            <h3>
+                                <?= $program['title'] ?>
+                                <div class="line"></div>
+                            </h3>
                             
                             <p>Primary objective:</p>
-                            <?= $program['description'] ?>
+                            <p><?= $program['description'] ?></p>
+
+                            <?= $this->Html->link('View program', ['controller' => 'programs', 'action' => 'view', $program['id']], array('class' => 'button')) ?>
                         </div>
                     </div>
                 <?php endforeach; ?>
@@ -81,11 +86,6 @@ $cakeDescription = 'Phat Taker: the rapid fat loss framework';
             <?= $this->Html->link('Login', '/users/login') ?>
         </div>
     <?php endif; ?>
-</div>
-
-<div class="row">
-
-    <hr />
 </div>
 
 <?= $this->Html->script('app.js') ?>

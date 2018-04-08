@@ -1,7 +1,7 @@
 {
   "name": "phat_taker",
   "version": "1.0.0",
-  "description": "[![Build Status](https://img.shields.io/travis/cakephp/app/master.svg?style=flat-square)](https://travis-ci.org/cakephp/app) [![License](https://img.shields.io/packagist/l/cakephp/app.svg?style=flat-square)](https://packagist.org/packages/cakephp/app)",
+  "description": "Compile sass and js",
   "main": "app.js",
   "directories": {
     "test": "tests"
@@ -9,14 +9,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://Shanvr01@bitbucket.org/Shanvr01/phat_taker.git"
-  },
-  "author": "",
+  "repository": "git+https://Shanvr01@bitbucket.org/Shanvr01/phat_taker.git",
+  "author": "shan van rensburg",
   "license": "ISC",
   "homepage": "https://bitbucket.org/Shanvr01/phat_taker#readme",
-  "dependencies": {},
+  "dependencies": {
+    "yarn": "^1.5.1"
+  },
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^5.0.0",
