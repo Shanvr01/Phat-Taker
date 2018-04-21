@@ -10,7 +10,7 @@ use Cake\Validation\Validator;
  * Users Model
  *
  * @property \App\Model\Table\RolesTable|\Cake\ORM\Association\BelongsTo $Roles
- * @property |\Cake\ORM\Association\HasMany $Measurements
+ * @property \App\Model\Table\MeasurementsTable|\Cake\ORM\Association\HasMany $Measurements
  * @property \App\Model\Table\ProgramsTable|\Cake\ORM\Association\BelongsToMany $Programs
  *
  * @method \App\Model\Entity\User get($primaryKey, $options = [])
@@ -81,8 +81,8 @@ class UsersTable extends Table
             ->notEmpty('last_name');
 
         $validator
-            ->integer('age')
-            ->allowEmpty('age');
+            ->date('date_of_birth')
+            ->allowEmpty('date_of_birth');
 
         $validator
             ->integer('gender')

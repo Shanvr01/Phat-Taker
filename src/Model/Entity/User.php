@@ -10,7 +10,7 @@ use Cake\ORM\Entity;
  * @property int $role_id
  * @property string $first_name
  * @property string $last_name
- * @property int $age
+ * @property \Cake\I18n\FrozenDate $date_of_birth
  * @property int $gender
  * @property string $email
  * @property string $password
@@ -18,6 +18,7 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenTime $modified
  *
  * @property \App\Model\Entity\Role $role
+ * @property \App\Model\Entity\Measurement[] $measurements
  * @property \App\Model\Entity\Program[] $programs
  */
 class User extends Entity
@@ -36,13 +37,14 @@ class User extends Entity
         'role_id' => true,
         'first_name' => true,
         'last_name' => true,
-        'age' => true,
+        'date_of_birth' => true,
         'gender' => true,
         'email' => true,
         'password' => true,
         'created' => true,
         'modified' => true,
         'role' => true,
+        'measurements' => true,
         'programs' => true
     ];
 
