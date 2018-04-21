@@ -17,10 +17,11 @@
     <fieldset>
         <legend><?= __('Add Measurement') ?></legend>
         <?php
-            echo $this->Form->control('user_id', ['options' => $users]);
-            echo $this->Form->control('user_height');
-            echo $this->Form->control('user_weight');
-            echo $this->Form->control('user_bodyfat');
+            echo $this->Form->label('user_id', 'User', ['class' => $this->request->getQuery('id') ? 'hide' : false]);
+            echo $this->Form->control('user_id', ['label' => false, 'options' => $users, 'default' => $this->request->getQuery('id'), 'class' => $this->request->getQuery('id') ? 'hide' : false]);
+            echo $this->Form->control('user_height', ['label' => 'User Height (cm)']);
+            echo $this->Form->control('user_weight', ['label' => 'User Weight (kg)']);
+            echo $this->Form->control('user_bodyfat', ['label' => 'User Body Fat (%)']);
             echo $this->Form->control('user_notes');
         ?>
     </fieldset>

@@ -17,19 +17,17 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('user_height') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('user_weight') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('user_bodyfat') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('user_height', 'User Height (cm)') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('user_weight', 'User Weight (kg)') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('user_bodyfat', 'User Body Fat (%)') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($measurements as $measurement): ?>
             <tr>
-                <td><?= $this->Number->format($measurement->id) ?></td>
-                <td><?= $measurement->has('user') ? $this->Html->link($measurement->user->id, ['controller' => 'Users', 'action' => 'view', $measurement->user->id]) : '' ?></td>
+                <td><?= $measurement->has('user') ? $this->Html->link($measurement->user->full_name, ['controller' => 'Users', 'action' => 'view', $measurement->user->id]) : '' ?></td>
                 <td><?= $this->Number->format($measurement->user_height) ?></td>
                 <td><?= $this->Number->format($measurement->user_weight) ?></td>
                 <td><?= $this->Number->format($measurement->user_bodyfat) ?></td>

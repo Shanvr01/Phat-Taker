@@ -23,8 +23,7 @@
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('role_id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('first_name') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('last_name') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('first_name', 'Full Name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('date_of_birth') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('gender') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('email') ?></th>
@@ -38,10 +37,9 @@
             <tr>
                 <td><?= $this->Number->format($user->id) ?></td>
                 <td><?= $user->has('role') ? $this->Html->link($user->role->title, ['controller' => 'Roles', 'action' => 'view', $user->role->id]) : '' ?></td>
-                <td><?= h($user->first_name) ?></td>
-                <td><?= h($user->last_name) ?></td>
+                <td><?= h($user->full_name) ?></td>
                 <td><?= h($user->date_of_birth) ?></td>
-                <td><?= $this->Number->format($user->gender) ?></td>
+                <td><?= $user->gender_title ?></td>
                 <td><?= h($user->email) ?></td>
                 <td><?= h($user->created) ?></td>
                 <td><?= h($user->modified) ?></td>

@@ -7,32 +7,22 @@
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
+        <li><?= $this->Html->link(__('New Program'), ['controller' => 'Programs', 'action' => 'add', '?' => ['id' => $user->id]]) ?> </li>
+        <li><?= $this->Html->link(__('New Measurement'), ['controller' => 'Measurements', 'action' => 'add', '?' => ['id' => $user->id]]) ?> </li>
         <li><?= $this->Html->link(__('Edit User'), ['action' => 'edit', $user->id]) ?> </li>
         <li><?= $this->Form->postLink(__('Delete User'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Users'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New User'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Roles'), ['controller' => 'Roles', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Role'), ['controller' => 'Roles', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Measurements'), ['controller' => 'Measurements', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Measurement'), ['controller' => 'Measurements', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Programs'), ['controller' => 'Programs', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Program'), ['controller' => 'Programs', 'action' => 'add']) ?> </li>
     </ul>
 </nav>
 <div class="users view large-9 medium-8 columns content">
-    <h3><?= h($user->id) ?></h3>
+    <h3><?= h($user->full_name) ?></h3>
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Role') ?></th>
             <td><?= $user->has('role') ? $this->Html->link($user->role->title, ['controller' => 'Roles', 'action' => 'view', $user->role->id]) : '' ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('First Name') ?></th>
-            <td><?= h($user->first_name) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Last Name') ?></th>
-            <td><?= h($user->last_name) ?></td>
+            <th scope="row"><?= __('Name') ?></th>
+            <td><?= h($user->full_name) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Email') ?></th>
@@ -44,7 +34,7 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Gender') ?></th>
-            <td><?= $this->Number->format($user->gender) ?></td>
+            <td><?= $user->gender_title ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Date Of Birth') ?></th>
@@ -98,23 +88,20 @@
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('User Id') ?></th>
-                <th scope="col"><?= __('User Height') ?></th>
-                <th scope="col"><?= __('User Weight') ?></th>
-                <th scope="col"><?= __('User Bodyfat') ?></th>
+                <th scope="col"><?= __('User Height (cm)') ?></th>
+                <th scope="col"><?= __('User Weight (kg)') ?></th>
+                <th scope="col"><?= __('User Body Fat (%)') ?></th>
                 <th scope="col"><?= __('User Notes') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($user->measurements as $measurements): ?>
             <tr>
                 <td><?= h($measurements->id) ?></td>
-                <td><?= h($measurements->user_id) ?></td>
                 <td><?= h($measurements->user_height) ?></td>
                 <td><?= h($measurements->user_weight) ?></td>
                 <td><?= h($measurements->user_bodyfat) ?></td>
                 <td><?= h($measurements->user_notes) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Measurements', 'action' => 'view', $measurements->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Measurements', 'action' => 'edit', $measurements->id]) ?>
                     <?= $this->Form->postLink(__('Delete'), ['controller' => 'Measurements', 'action' => 'delete', $measurements->id], ['confirm' => __('Are you sure you want to delete # {0}?', $measurements->id)]) ?>
                 </td>

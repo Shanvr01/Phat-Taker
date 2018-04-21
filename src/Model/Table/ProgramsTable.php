@@ -43,6 +43,18 @@ class ProgramsTable extends Table
 
         $this->addBehavior('Timestamp');
 
+        $this->belongsTo('Trainers', [
+            'foreignKey' => 'trainer_id',
+            'className' => 'Users',
+            'joinType' => 'RIGHT',
+            'propertyName' => 'trainer'
+        ]);
+        $this->belongsTo('Clients', [
+            'foreignKey' => 'client_id',
+            'className' => 'Users',
+            'joinType' => 'RIGHT',
+            'propertyName' => 'client'
+        ]);
         $this->hasMany('Workouts', [
             'foreignKey' => 'program_id'
         ]);

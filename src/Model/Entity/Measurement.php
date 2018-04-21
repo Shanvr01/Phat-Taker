@@ -33,6 +33,8 @@ class Measurement extends Entity
         'user_weight' => true,
         'user_bodyfat' => true,
         'user_notes' => true,
-        'user' => true
+        'user' => true,
+        'created' => true,
+        'modified' => true
     ];
 }

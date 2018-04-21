@@ -3,6 +3,7 @@ namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
 use Cake\Auth\DefaultPasswordHasher;
+use App\Constants\General;
 
 /**
  * User Entity
@@ -67,5 +68,10 @@ class User extends Entity
     public function _getFullName()
     {
         return "$this->first_name $this->last_name";
+    }
+
+    public function _getGenderTitle()
+    {
+        return General::GENDERS[$this->gender] ?? 'N/A';
     }
 }

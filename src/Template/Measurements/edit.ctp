@@ -24,9 +24,9 @@
         <legend><?= __('Edit Measurement') ?></legend>
         <?php
             echo $this->Form->control('user_id', ['options' => $users]);
-            echo $this->Form->control('user_height');
-            echo $this->Form->control('user_weight');
-            echo $this->Form->control('user_bodyfat');
+            echo $this->Form->control('user_height', ['label' => 'User Height (cm)']);
+            echo $this->Form->control('user_weight', ['label' => 'User Weight (kg)']);
+            echo $this->Form->control('user_bodyfat', ['label' => 'User Body Fat (%)']);
             echo $this->Form->control('user_notes');
         ?>
     </fieldset>

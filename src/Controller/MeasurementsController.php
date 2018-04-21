@@ -57,7 +57,7 @@ class MeasurementsController extends AppController
             if ($this->Measurements->save($measurement)) {
                 $this->Flash->success(__('The measurement has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['controller' => 'Users', 'action' => 'view', $measurement->user_id]);
             }
             $this->Flash->error(__('The measurement could not be saved. Please, try again.'));
         }
