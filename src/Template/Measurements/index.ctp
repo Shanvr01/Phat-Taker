@@ -19,8 +19,6 @@
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('user_age') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('user_gender') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('user_height') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('user_weight') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('user_bodyfat') ?></th>
@@ -32,8 +30,6 @@
             <tr>
                 <td><?= $this->Number->format($measurement->id) ?></td>
                 <td><?= $measurement->has('user') ? $this->Html->link($measurement->user->id, ['controller' => 'Users', 'action' => 'view', $measurement->user->id]) : '' ?></td>
-                <td><?= $this->Number->format($measurement->user_age) ?></td>
-                <td><?= $this->Number->format($measurement->user_gender) ?></td>
                 <td><?= $this->Number->format($measurement->user_height) ?></td>
                 <td><?= $this->Number->format($measurement->user_weight) ?></td>
                 <td><?= $this->Number->format($measurement->user_bodyfat) ?></td>

@@ -8,8 +8,6 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property int $user_id
- * @property int $user_age
- * @property int $user_gender
  * @property float $user_height
  * @property float $user_weight
  * @property float $user_bodyfat
@@ -31,8 +29,6 @@ class Measurement extends Entity
      */
     protected $_accessible = [
         'user_id' => true,
-        'user_age' => true,
-        'user_gender' => true,
         'user_height' => true,
         'user_weight' => true,
         'user_bodyfat' => true,

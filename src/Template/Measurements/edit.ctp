@@ -24,8 +24,6 @@
         <legend><?= __('Edit Measurement') ?></legend>
         <?php
             echo $this->Form->control('user_id', ['options' => $users]);
-            echo $this->Form->control('user_age');
-            echo $this->Form->control('user_gender');
             echo $this->Form->control('user_height');
             echo $this->Form->control('user_weight');
             echo $this->Form->control('user_bodyfat');

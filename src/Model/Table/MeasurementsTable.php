@@ -55,14 +55,6 @@ class MeasurementsTable extends Table
             ->allowEmpty('id', 'create');
 
         $validator
-            ->integer('user_age')
-            ->allowEmpty('user_age');
-
-        $validator
-            ->integer('user_gender')
-            ->allowEmpty('user_gender');
-
-        $validator
             ->decimal('user_height')
             ->allowEmpty('user_height');
 

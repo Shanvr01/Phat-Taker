@@ -27,14 +27,6 @@
             <td><?= $this->Number->format($measurement->id) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('User Age') ?></th>
-            <td><?= $this->Number->format($measurement->user_age) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('User Gender') ?></th>
-            <td><?= $this->Number->format($measurement->user_gender) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('User Height') ?></th>
             <td><?= $this->Number->format($measurement->user_height) ?></td>
         </tr>
