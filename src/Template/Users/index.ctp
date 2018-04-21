@@ -10,6 +10,8 @@
         <li><?= $this->Html->link(__('New User'), ['action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Roles'), ['controller' => 'Roles', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Role'), ['controller' => 'Roles', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Measurements'), ['controller' => 'Measurements', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Measurement'), ['controller' => 'Measurements', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Programs'), ['controller' => 'Programs', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Program'), ['controller' => 'Programs', 'action' => 'add']) ?></li>
     </ul>
@@ -23,7 +25,7 @@
                 <th scope="col"><?= $this->Paginator->sort('role_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('first_name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('last_name') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('age') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('date_of_birth') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('gender') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('email') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('created') ?></th>
@@ -38,7 +40,7 @@
                 <td><?= $user->has('role') ? $this->Html->link($user->role->title, ['controller' => 'Roles', 'action' => 'view', $user->role->id]) : '' ?></td>
                 <td><?= h($user->first_name) ?></td>
                 <td><?= h($user->last_name) ?></td>
-                <td><?= $this->Number->format($user->age) ?></td>
+                <td><?= h($user->date_of_birth) ?></td>
                 <td><?= $this->Number->format($user->gender) ?></td>
                 <td><?= h($user->email) ?></td>
                 <td><?= h($user->created) ?></td>

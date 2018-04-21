@@ -13,6 +13,8 @@
         <li><?= $this->Html->link(__('New User'), ['action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Roles'), ['controller' => 'Roles', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Role'), ['controller' => 'Roles', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Measurements'), ['controller' => 'Measurements', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Measurement'), ['controller' => 'Measurements', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Programs'), ['controller' => 'Programs', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Program'), ['controller' => 'Programs', 'action' => 'add']) ?> </li>
     </ul>
@@ -41,12 +43,12 @@
             <td><?= $this->Number->format($user->id) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Age') ?></th>
-            <td><?= $this->Number->format($user->age) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Gender') ?></th>
             <td><?= $this->Number->format($user->gender) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Date Of Birth') ?></th>
+            <td><?= h($user->date_of_birth) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Created') ?></th>
@@ -84,6 +86,37 @@
                     <?= $this->Html->link(__('View'), ['controller' => 'Programs', 'action' => 'view', $programs->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Programs', 'action' => 'edit', $programs->id]) ?>
                     <?= $this->Form->postLink(__('Delete'), ['controller' => 'Programs', 'action' => 'delete', $programs->id], ['confirm' => __('Are you sure you want to delete # {0}?', $programs->id)]) ?>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </table>
+        <?php endif; ?>
+    </div>
+    <div class="related">
+        <h4><?= __('Related Measurements') ?></h4>
+        <?php if (!empty($user->measurements)): ?>
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <th scope="col"><?= __('Id') ?></th>
+                <th scope="col"><?= __('User Id') ?></th>
+                <th scope="col"><?= __('User Height') ?></th>
+                <th scope="col"><?= __('User Weight') ?></th>
+                <th scope="col"><?= __('User Bodyfat') ?></th>
+                <th scope="col"><?= __('User Notes') ?></th>
+                <th scope="col" class="actions"><?= __('Actions') ?></th>
+            </tr>
+            <?php foreach ($user->measurements as $measurements): ?>
+            <tr>
+                <td><?= h($measurements->id) ?></td>
+                <td><?= h($measurements->user_id) ?></td>
+                <td><?= h($measurements->user_height) ?></td>
+                <td><?= h($measurements->user_weight) ?></td>
+                <td><?= h($measurements->user_bodyfat) ?></td>
+                <td><?= h($measurements->user_notes) ?></td>
+                <td class="actions">
+                    <?= $this->Html->link(__('View'), ['controller' => 'Measurements', 'action' => 'view', $measurements->id]) ?>
+                    <?= $this->Html->link(__('Edit'), ['controller' => 'Measurements', 'action' => 'edit', $measurements->id]) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Measurements', 'action' => 'delete', $measurements->id], ['confirm' => __('Are you sure you want to delete # {0}?', $measurements->id)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
