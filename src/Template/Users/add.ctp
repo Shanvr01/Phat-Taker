@@ -28,7 +28,7 @@
             echo $this->Form->control('gender');
             echo $this->Form->control('email');
             echo $this->Form->control('password');
-            echo $this->Form->control('programs._ids', ['options' => $programs]);
+            // echo $this->Form->control('programs._ids', ['options' => $programs]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
