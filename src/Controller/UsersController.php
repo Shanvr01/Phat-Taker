@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use App\Constants\General;
 
 /**
  * Users Controller
@@ -87,8 +88,8 @@ class UsersController extends AppController
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
         $roles = $this->Users->Roles->find('list', ['limit' => 200]);
-        // $programs = $this->Users->Programs->find('list', ['limit' => 200]);
-        $this->set(compact('user', 'roles'));
+        $genders = General::GENDERS;
+        $this->set(compact('user', 'roles', 'genders'));
     }
 
     /**
@@ -113,8 +114,8 @@ class UsersController extends AppController
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
         $roles = $this->Users->Roles->find('list', ['limit' => 200]);
-        // $programs = $this->Users->Programs->find('list', ['limit' => 200]);
-        $this->set(compact('user', 'roles'));
+        $genders = General::GENDERS;
+        $this->set(compact('user', 'roles', 'genders'));
     }
 
     /**
