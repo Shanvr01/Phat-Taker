@@ -59,28 +59,23 @@ class MeasurementsTable extends Table
             ->allowEmpty('user_age');
 
         $validator
-            ->scalar('user_gender')
-            ->maxLength('user_gender', 1)
+            ->integer('user_gender')
             ->allowEmpty('user_gender');
 
         $validator
-            ->scalar('user_height')
-            ->maxLength('user_height', 50)
+            ->decimal('user_height')
             ->allowEmpty('user_height');
 
         $validator
-            ->scalar('user_weight')
-            ->maxLength('user_weight', 50)
+            ->decimal('user_weight')
             ->allowEmpty('user_weight');
 
         $validator
-            ->scalar('user_bodyfat')
-            ->maxLength('user_bodyfat', 50)
+            ->decimal('user_bodyfat')
             ->allowEmpty('user_bodyfat');
 
         $validator
             ->scalar('user_notes')
-            ->maxLength('user_notes', 255)
             ->allowEmpty('user_notes');
 
         return $validator;

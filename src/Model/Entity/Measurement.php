@@ -9,10 +9,10 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property int $user_id
  * @property int $user_age
- * @property string $user_gender
- * @property string $user_height
- * @property string $user_weight
- * @property string $user_bodyfat
+ * @property int $user_gender
+ * @property float $user_height
+ * @property float $user_weight
+ * @property float $user_bodyfat
  * @property string $user_notes
  *
  * @property \App\Model\Entity\User $user

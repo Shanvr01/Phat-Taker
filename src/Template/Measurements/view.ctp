@@ -23,26 +23,6 @@
             <td><?= $measurement->has('user') ? $this->Html->link($measurement->user->id, ['controller' => 'Users', 'action' => 'view', $measurement->user->id]) : '' ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('User Gender') ?></th>
-            <td><?= h($measurement->user_gender) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('User Height') ?></th>
-            <td><?= h($measurement->user_height) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('User Weight') ?></th>
-            <td><?= h($measurement->user_weight) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('User Bodyfat') ?></th>
-            <td><?= h($measurement->user_bodyfat) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('User Notes') ?></th>
-            <td><?= h($measurement->user_notes) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Id') ?></th>
             <td><?= $this->Number->format($measurement->id) ?></td>
         </tr>
@@ -50,5 +30,25 @@
             <th scope="row"><?= __('User Age') ?></th>
             <td><?= $this->Number->format($measurement->user_age) ?></td>
         </tr>
+        <tr>
+            <th scope="row"><?= __('User Gender') ?></th>
+            <td><?= $this->Number->format($measurement->user_gender) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('User Height') ?></th>
+            <td><?= $this->Number->format($measurement->user_height) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('User Weight') ?></th>
+            <td><?= $this->Number->format($measurement->user_weight) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('User Bodyfat') ?></th>
+            <td><?= $this->Number->format($measurement->user_bodyfat) ?></td>
+        </tr>
     </table>
+    <div class="row">
+        <h4><?= __('User Notes') ?></h4>
+        <?= $this->Text->autoParagraph(h($measurement->user_notes)); ?>
+    </div>
 </div>
