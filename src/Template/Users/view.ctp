@@ -41,6 +41,14 @@
             <td><?= $this->Number->format($user->id) ?></td>
         </tr>
         <tr>
+            <th scope="row"><?= __('Age') ?></th>
+            <td><?= $this->Number->format($user->age) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Gender') ?></th>
+            <td><?= $this->Number->format($user->gender) ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Created') ?></th>
             <td><?= h($user->created) ?></td>
         </tr>

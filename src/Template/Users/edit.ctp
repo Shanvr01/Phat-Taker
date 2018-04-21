@@ -28,6 +28,8 @@
             echo $this->Form->control('role_id', ['options' => $roles]);
             echo $this->Form->control('first_name');
             echo $this->Form->control('last_name');
+            echo $this->Form->control('age');
+            echo $this->Form->control('gender');
             echo $this->Form->control('email');
             echo $this->Form->control('password');
             // echo $this->Form->control('programs._ids', ['options' => $programs]);
