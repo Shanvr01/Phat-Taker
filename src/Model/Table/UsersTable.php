@@ -10,6 +10,7 @@ use Cake\Validation\Validator;
  * Users Model
  *
  * @property \App\Model\Table\RolesTable|\Cake\ORM\Association\BelongsTo $Roles
+ * @property |\Cake\ORM\Association\HasMany $Measurements
  * @property \App\Model\Table\ProgramsTable|\Cake\ORM\Association\BelongsToMany $Programs
  *
  * @method \App\Model\Entity\User get($primaryKey, $options = [])
@@ -45,13 +46,8 @@ class UsersTable extends Table
             'foreignKey' => 'role_id',
             'joinType' => 'INNER'
         ]);
-        $this->hasMany('Programs', [
-            'foreignKey' => 'client_id',
-            'className' => 'Programs'
-        ]);
-        $this->hasMany('Programs', [
-            'foreignKey' => 'trainer_id',
-            'className' => 'Programs'
+        $this->hasMany('Measurements', [
+            'foreignKey' => 'user_id'
         ]);
         $this->belongsToMany('Programs', [
             'foreignKey' => 'user_id',
@@ -83,6 +79,14 @@ class UsersTable extends Table
             ->maxLength('last_name', 255)
             ->requirePresence('last_name', 'create')
             ->notEmpty('last_name');
+
+        $validator
+            ->integer('age')
+            ->allowEmpty('age');
+
+        $validator
+            ->integer('gender')
+            ->allowEmpty('gender');
 
         $validator
             ->email('email')

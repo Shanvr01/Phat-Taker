@@ -1,7 +1,6 @@
 <?php
 namespace App\Model\Entity;
 
-use Cake\Auth\DefaultPasswordHasher;
 use Cake\ORM\Entity;
 
 /**
@@ -11,6 +10,8 @@ use Cake\ORM\Entity;
  * @property int $role_id
  * @property string $first_name
  * @property string $last_name
+ * @property int $age
+ * @property int $gender
  * @property string $email
  * @property string $password
  * @property \Cake\I18n\FrozenTime $created
@@ -35,6 +36,8 @@ class User extends Entity
         'role_id' => true,
         'first_name' => true,
         'last_name' => true,
+        'age' => true,
+        'gender' => true,
         'email' => true,
         'password' => true,
         'created' => true,

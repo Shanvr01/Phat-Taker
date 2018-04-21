@@ -27,7 +27,12 @@ class UsersTableTest extends TestCase
         'app.users',
         'app.roles',
         'app.programs',
-        'app.users_programs'
+        'app.trainers',
+        'app.users_programs',
+        'app.clients',
+        'app.workouts',
+        'app.exercises',
+        'app.workouts_exercises'
     ];
 
     /**
