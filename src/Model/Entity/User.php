@@ -57,4 +57,9 @@ class User extends Entity
         $hasher = new DefaultPasswordHasher();
         return $hasher->hash($value);
     }
+
+    public function _getFullName()
+    {
+        return "$this->first_name $this->last_name";
+    }
 }

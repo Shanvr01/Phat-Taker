@@ -61,7 +61,8 @@ class MeasurementsController extends AppController
             }
             $this->Flash->error(__('The measurement could not be saved. Please, try again.'));
         }
-        $users = $this->Measurements->Users->find('list', ['limit' => 200]);
+        $users = $this->Measurements->Users->find('list', ['valueField' => 'full_name']);
+        
         $this->set(compact('measurement', 'users'));
     }
 
