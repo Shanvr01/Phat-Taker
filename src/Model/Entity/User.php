@@ -1,8 +1,9 @@
 <?php
 namespace App\Model\Entity;
 
-use Cake\Auth\DefaultPasswordHasher;
 use Cake\ORM\Entity;
+use Cake\Auth\DefaultPasswordHasher;
+use App\Constants\General;
 
 /**
  * User Entity
@@ -11,12 +12,15 @@ use Cake\ORM\Entity;
  * @property int $role_id
  * @property string $first_name
  * @property string $last_name
+ * @property \Cake\I18n\FrozenDate $date_of_birth
+ * @property int $gender
  * @property string $email
  * @property string $password
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
  *
  * @property \App\Model\Entity\Role $role
+ * @property \App\Model\Entity\Measurement[] $measurements
  * @property \App\Model\Entity\Program[] $programs
  */
 class User extends Entity
@@ -35,11 +39,14 @@ class User extends Entity
         'role_id' => true,
         'first_name' => true,
         'last_name' => true,
+        'date_of_birth' => true,
+        'gender' => true,
         'email' => true,
         'password' => true,
         'created' => true,
         'modified' => true,
         'role' => true,
+        'measurements' => true,
         'programs' => true
     ];
 
@@ -56,5 +63,15 @@ class User extends Entity
     {
         $hasher = new DefaultPasswordHasher();
         return $hasher->hash($value);
+    }
+
+    public function _getFullName()
+    {
+        return "$this->first_name $this->last_name";
+    }
+
+    public function _getGenderTitle()
+    {
+        return General::GENDERS[$this->gender] ?? 'N/A';
     }
 }

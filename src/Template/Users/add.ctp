@@ -10,6 +10,8 @@
         <li><?= $this->Html->link(__('List Users'), ['action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('List Roles'), ['controller' => 'Roles', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Role'), ['controller' => 'Roles', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Measurements'), ['controller' => 'Measurements', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Measurement'), ['controller' => 'Measurements', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Programs'), ['controller' => 'Programs', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Program'), ['controller' => 'Programs', 'action' => 'add']) ?></li>
     </ul>
@@ -22,9 +24,15 @@
             echo $this->Form->control('role_id', ['options' => $roles]);
             echo $this->Form->control('first_name');
             echo $this->Form->control('last_name');
+        ?>
+        <div class="input date">
+            <label>Date of Birth</label>
+            <?= $this->Form->date('date_of_birth', ['empty' => true, 'minYear' => date('Y', strtotime('-80 years'))]) ?>
+        </div>
+        <?php
+            echo $this->Form->input('gender', ['options' => $genders, 'empty' => '- Select -']);
             echo $this->Form->control('email');
             echo $this->Form->control('password');
-            // echo $this->Form->control('programs._ids', ['options' => $programs]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
