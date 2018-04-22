@@ -107,7 +107,7 @@ $cakeDescription = 'Phat Taker: the rapid fat loss framework';
         
     <?php else: ?>
         <div class="small-12 medium-6 columns text-center">
-            <?= $this->Html->link('Register', '/users/add') ?>
+            <?= $this->Html->link('Register', '/register') ?>
         </div>
 
         <div class="small-12 medium-6 columns text-center">

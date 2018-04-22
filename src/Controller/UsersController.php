@@ -16,7 +16,7 @@ class UsersController extends AppController
     public function initialize()
     {
         parent::initialize();
-        $this->Auth->allow(['logout', 'add']);
+        $this->Auth->allow(['logout', 'add', 'register', 'success']);
     }
 
     public function login()
@@ -83,7 +83,8 @@ class UsersController extends AppController
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('The user has been saved.'));
 
-                return $this->redirect(['action' => 'success']);
+                $this->login();
+                return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
@@ -136,5 +137,40 @@ class UsersController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    /**
+     * Register method
+     *
+     * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
+     */
+    public function register()
+    {
+        $user = $this->Users->newEntity();
+        if ($this->request->is('post')) {
+            $user = $this->Users->patchEntity($user, $this->request->getData());
+            //users are only allowed to register as athlete from register function
+            $user->role_id = 2;
+            if ($this->Users->save($user)) {
+                $this->Flash->success(__('You have registered successfully.'));
+                $this->Auth->setUser($user);
+
+                return $this->redirect('/register/success');
+            }
+            $this->Flash->error(__('The user could not be saved. Please, try again.'));
+        }
+        $roles = $this->Users->Roles->find('list', ['limit' => 200]);
+        $genders = General::GENDERS;
+        $this->set(compact('user', 'roles', 'genders'));
+    }
+
+    /**
+     * Register method
+     *
+     * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
+     */
+    public function success()
+    {
+
     }
 }
