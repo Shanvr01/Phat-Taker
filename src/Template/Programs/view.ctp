@@ -34,11 +34,11 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Trainer Name') ?></th>
-            <td><?= $program->trainer->first_name ?> <?= $program->trainer->last_name ?></td>
+            <td><?= $program->trainer->full_name ?>
         </tr>
         <tr>
             <th scope="row"><?= __('Client Name') ?></th>
-            <td><?= $program->client->first_name ?> <?= $program->client->last_name ?></td>
+            <td><?= $program->client->full_name ?>
         </tr>
         <tr>
             <th scope="row"><?= __('Created') ?></th>

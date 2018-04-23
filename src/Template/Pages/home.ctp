@@ -54,10 +54,21 @@ $cakeDescription = 'Phat Taker: the rapid fat loss framework';
             );
         ?>
     </div>
-    <div class="header-title">
+    <!-- <div class="header-title">
         <h1>Welcome to Phat Taker.</h1>
-    </div>
+    </div> -->
 </header>
+<nav class="top-bar expanded" data-topbar role="navigation">
+    <div class="top-bar-section">
+        <ul class="right">
+            <?php if($loggedIn): ?>
+                <li><a href="/users/logout">Sign Out</a></li>
+            <?php else: ?>
+                <li><a href="/users/login">Sign In</a></li>
+            <?php endif; ?>            
+        </ul>
+    </div>
+</nav>
 
 <div class="row">
     <?php if($loggedIn): ?>
@@ -68,16 +79,16 @@ $cakeDescription = 'Phat Taker: the rapid fat loss framework';
 
                 <div class="row">
                     <?php foreach($athletes as $athlete): ?>
-                        <div class="small-12 medium-6 large-4 columns end">
-                            <div class="program-blocks">
+                        <ul>
+                            <li class="program-blocks">
                                 <h3>
                                     <?= $athlete['first_name'] ?> <?= $athlete['last_name'] ?>
-                                    <div class="line"></div>
+                                    <span class="line"></span>
                                 </h3>
 
                                 <?= $this->Html->link('View athlete details', ['controller' => 'users', 'action' => 'view', $athlete['id']], array('class' => 'button')) ?>
-                            </div>
-                        </div>
+                            </li>
+                        </ul>
                     <?php endforeach; ?>
                 </div>
             </div>
@@ -86,32 +97,38 @@ $cakeDescription = 'Phat Taker: the rapid fat loss framework';
                 <h2>Programs</h2>
 
                 <div class="row">
-                    <?php foreach($programs as $program): ?>
-                        <div class="small-12 medium-6 large-4 columns end">
-                            <div class="program-blocks">
-                                <h3>
-                                    <?= $program['title'] ?>
-                                    <div class="line"></div>
-                                </h3>
-                                
-                                <p>Primary objective:</p>
-                                <p><?= $program['description'] ?></p>
+                    <?php if (!$programs->isEmpty()): ?>
+                        <?php foreach($programs as $program): ?>
+                            <div class="small-12 medium-6 large-4 columns end">
+                                <div class="program-blocks">
+                                    <h3>
+                                        <?= $program['title'] ?>
+                                        <div class="line"></div>
+                                    </h3>
+                                    
+                                    <p>Primary objective:</p>
+                                    <p><?= $program['description'] ?></p>
 
-                                <?= $this->Html->link('View program', ['controller' => 'programs', 'action' => 'view', $program['id']], array('class' => 'button')) ?>
+                                    <?= $this->Html->link('View program', ['controller' => 'programs', 'action' => 'view', $program['id']], array('class' => 'button')) ?>
+                                </div>
                             </div>
-                        </div>
-                    <?php endforeach; ?>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <p>You don't have any programs assigned to you yet.</p>
+                    <?php endif ?>
                 </div>
             </div>
         <?php endif; ?>
         
     <?php else: ?>
-        <div class="small-12 medium-6 columns text-center">
-            <?= $this->Html->link('Register', '/users/add') ?>
+        <div class="small-12 medium-6 columns text-center program-blocks margin-top">
+            <h2>If you are not a register athlete click below:</h2>
+            <?= $this->Html->link('Register', '/register', ['class' => 'button']) ?>
         </div>
 
-        <div class="small-12 medium-6 columns text-center">
-            <?= $this->Html->link('Login', '/users/login') ?>
+        <div class="small-12 medium-6 columns text-center program-blocks">
+            <h2>To log in to your existing account:</h2>
+            <?= $this->Html->link('Login', '/login', ['class' => 'button']) ?>
         </div>
     <?php endif; ?>
 </div>

@@ -2,6 +2,8 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\Collection\Collection;
+use App\Constants\General;
 
 /**
  * Programs Controller
@@ -58,23 +60,19 @@ class ProgramsController extends AppController
             }
             $this->Flash->error(__('The program could not be saved. Please, try again.'));
         }
-        $trainers = $this->Programs->Trainers->find('list', [
-            'limit' => 200,
-            'keyField' => 'id',
-            'valueField' => 'first_name'
-        ])->where([
-            'role_id' => 1
-        ])->toArray();
+        $users = $this->Programs->Users->find('all');
+        $usersCollection = (new Collection($users))->groupBy('role_id')->toArray();
 
-        $athletes = $this->Programs->Clients->find('list', [
-            'limit' => 200,
-            'keyField' => 'id',
-            'valueField' => 'first_name'
-        ])->where([
-            'role_id' => 2
-        ])->toArray();
+        $users = [];
+        foreach(General::ROLES as $role => $roleId) {
+            if (empty($usersCollection[$roleId])) {
+                continue;
+            }
 
-        $this->set(compact('program', 'trainers', 'athletes'));
+            $users[$role] = (new Collection($usersCollection[$roleId]))->combine('id', 'full_name')->toArray();
+        }
+
+        $this->set(compact('program', 'users'));
     }
 
     /**
@@ -98,23 +96,20 @@ class ProgramsController extends AppController
             }
             $this->Flash->error(__('The program could not be saved. Please, try again.'));
         }
-        $trainers = $this->Programs->Trainers->find('list', [
-            'limit' => 200,
-            'keyField' => 'id',
-            'valueField' => 'first_name'
-        ])->where([
-            'role_id' => 1
-        ])->toArray();
+        
+        $users = $this->Programs->Users->find('all');
+        $usersCollection = (new Collection($users))->groupBy('role_id')->toArray();
 
-        $athletes = $this->Programs->Clients->find('list', [
-            'limit' => 200,
-            'keyField' => 'id',
-            'valueField' => 'first_name'
-        ])->where([
-            'role_id' => 3
-        ])->toArray();
+        $users = [];
+        foreach(General::ROLES as $role => $roleId) {
+            if (empty($usersCollection[$roleId])) {
+                continue;
+            }
 
-        $this->set(compact('program', 'trainers', 'athletes'));
+            $users[$role] = (new Collection($usersCollection[$roleId]))->combine('id', 'full_name')->toArray();
+        }
+
+        $this->set(compact('program', 'users'));
     }
 
     /**
