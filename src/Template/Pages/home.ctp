@@ -54,9 +54,6 @@ $cakeDescription = 'Phat Taker: the rapid fat loss framework';
             );
         ?>
     </div>
-    <!-- <div class="header-title">
-        <h1>Welcome to Phat Taker.</h1>
-    </div> -->
 </header>
 <nav class="top-bar expanded" data-topbar role="navigation">
     <div class="top-bar-section">
@@ -74,22 +71,18 @@ $cakeDescription = 'Phat Taker: the rapid fat loss framework';
     <?php if($loggedIn): ?>
 
         <?php if($isTrainer): ?>
-            <div class="small-12 columns text-center">
-                <h2>Athletes</h2>
-
-                <div class="row">
-                    <?php foreach($athletes as $athlete): ?>
-                        <ul>
-                            <li class="program-blocks">
-                                <h3>
-                                    <?= $athlete['first_name'] ?> <?= $athlete['last_name'] ?>
-                                    <span class="line"></span>
-                                </h3>
-
-                                <?= $this->Html->link('View athlete details', ['controller' => 'users', 'action' => 'view', $athlete['id']], array('class' => 'button')) ?>
-                            </li>
-                        </ul>
-                    <?php endforeach; ?>
+            <div class="small-10 small-centered columns text-center">
+                <h1>Phat Taker</h1>
+                <div class="program-blocks row">
+                    <div class="small-6 columns">
+                        <h3>
+                            Manage Users
+                        </h3>
+                    </div>
+    
+                    <div class="small-6 columns">
+                        <?= $this->Html->link('View User details', ['controller' => 'users', 'action' => 'index'], array('class' => 'button')) ?>
+                    </div>
                 </div>
             </div>
         <?php else: ?>        
@@ -117,17 +110,24 @@ $cakeDescription = 'Phat Taker: the rapid fat loss framework';
                         <p>You don't have any programs assigned to you yet.</p>
                     <?php endif ?>
                 </div>
+
+                <div class="row">
+                    <div class="small-12 columns">
+                        <h2><?= $this->Html->link('View your profile', ['controller' => 'users', 'action' => 'view', $user['id']], array('class' => 'button')) ?></ h2>
+                    </div>
+                </div>
+                
             </div>
         <?php endif; ?>
         
     <?php else: ?>
         <div class="small-12 medium-6 columns text-center program-blocks margin-top">
-            <h2>If you are not a register athlete click below:</h2>
+            <h2>To start your fitness journey click below:</h2>
             <?= $this->Html->link('Register', '/register', ['class' => 'button']) ?>
         </div>
 
         <div class="small-12 medium-6 columns text-center program-blocks">
-            <h2>To log in to your existing account:</h2>
+            <h2>To continue getting swole:</h2>
             <?= $this->Html->link('Login', '/login', ['class' => 'button']) ?>
         </div>
     <?php endif; ?>

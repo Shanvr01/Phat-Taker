@@ -13,6 +13,12 @@ use App\Controller\AppController;
 class WorkoutsController extends AppController
 {
 
+    public function initialize()
+    {
+        parent::initialize();
+        $this->Auth->allow(['view']);
+    }
+
     /**
      * Index method
      *

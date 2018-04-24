@@ -14,12 +14,9 @@
             )
         ?></li>
         <li><?= $this->Html->link(__('List Users'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Roles'), ['controller' => 'Roles', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Role'), ['controller' => 'Roles', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Measurements'), ['controller' => 'Measurements', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Measurement'), ['controller' => 'Measurements', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('New Measurement'), ['controller' => 'Measurements', 'action' => 'add', '?' => ['id' => $user->id]]) ?></li>
         <li><?= $this->Html->link(__('List Programs'), ['controller' => 'Programs', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Program'), ['controller' => 'Programs', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('New Program'), ['controller' => 'Programs', 'action' => 'add', '?' => ['id' => $user->id]]) ?></li>
     </ul>
 </nav>
 <div class="users form large-9 medium-8 columns content">

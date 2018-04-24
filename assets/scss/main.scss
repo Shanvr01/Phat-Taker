@@ -9,6 +9,26 @@ header {
     }
 }
 
+.top-bar {
+    &.expanded {
+        margin-bottom: 50px;
+        background-color: #324e93;
+
+        ul {
+            li {
+                a {
+                    background-color: #324e93;
+                }
+            }
+        }
+    }
+}
+
 .button {
-    border-radius: 5px;
+    border-radius: 2px;
+    background-color: #3C68D3;
+
+    &:hover {
+        background-color: #324e93;
+    }
 }

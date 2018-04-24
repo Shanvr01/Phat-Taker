@@ -63,9 +63,10 @@ class UsersController extends AppController
      */
     public function view($id = null)
     {
+        $this->isAuthorized($this->Auth->user('id'));
         $user = $this->Users->get($id, [
             'contain' => ['Roles', 'Programs', 'Measurements']
-        ]);
+            ]);
 
         $this->set('user', $user);
     }
@@ -172,5 +173,21 @@ class UsersController extends AppController
     public function success()
     {
 
+    }
+
+    public function isAuthorized($user)
+    {
+        $action = $this->request->getParam('action');
+        if (!$this->request->getParam('pass.0')) {
+            return false;
+        }
+        
+        $id = $this->request->getParam('pass.0');
+
+        if ($id == $user['id']) {
+            return true;
+        }
+
+        return parent::isAuthorized($user);
     }
 }

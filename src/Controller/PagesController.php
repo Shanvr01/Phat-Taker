@@ -70,8 +70,9 @@ class PagesController extends AppController
     public function home()
     {
         $isTrainer = false;
+        $user = $this->Auth->user();
 
-        if($this->Auth->user('role_id') === 1)
+        if($user['role_id'] === 1)
         {
             $this->loadModel('Users');
             
@@ -88,10 +89,10 @@ class PagesController extends AppController
         else
         {
             $this->loadModel('Programs');
-
-            $programs = $this->Programs->findByClientId($this->Auth->user('id'));
+            $programs = $this->Programs->findByClientId($user['id']);
 
             $this->set([
+                'user' => $user,
                 'programs' => $programs,
                 'isTrainer' => $isTrainer
             ]);
