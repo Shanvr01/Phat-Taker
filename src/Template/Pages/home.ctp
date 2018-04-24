@@ -87,7 +87,15 @@ $cakeDescription = 'Phat Taker: the rapid fat loss framework';
             </div>
         <?php else: ?>        
             <div class="small-12 columns text-center">
-                <h2>Programs</h2>
+                <h1>Phat Taker</h1>
+                <p class="greeting">Hi <?= $user['first_name'] ?>&hellip;</p>
+                <div class="row">
+                    <div class="small-12 columns">
+                        <h2><?= $this->Html->link('View your profile', ['controller' => 'users', 'action' => 'view', $user['id']], array('class' => 'button')) ?></h2>
+                    </div>
+                </div>
+
+                <h2>Latest Programs</h2>
 
                 <div class="row">
                     <?php if (!$programs->isEmpty()): ?>
@@ -110,13 +118,6 @@ $cakeDescription = 'Phat Taker: the rapid fat loss framework';
                         <p>You don't have any programs assigned to you yet.</p>
                     <?php endif ?>
                 </div>
-
-                <div class="row">
-                    <div class="small-12 columns">
-                        <h2><?= $this->Html->link('View your profile', ['controller' => 'users', 'action' => 'view', $user['id']], array('class' => 'button')) ?></ h2>
-                    </div>
-                </div>
-                
             </div>
         <?php endif; ?>
         

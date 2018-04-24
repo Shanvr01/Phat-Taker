@@ -89,7 +89,9 @@ class PagesController extends AppController
         else
         {
             $this->loadModel('Programs');
-            $programs = $this->Programs->findByClientId($user['id']);
+            $programs = $this->Programs->findByClientId($user['id'])
+                ->limit('3')    
+                ->order(['created' => 'DESC']);
 
             $this->set([
                 'user' => $user,
