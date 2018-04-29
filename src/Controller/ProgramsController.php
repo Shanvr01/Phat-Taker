@@ -56,6 +56,10 @@ class ProgramsController extends AppController
             if ($this->Programs->save($program)) {
                 $this->Flash->success(__('The program has been saved.'));
 
+                $userId = $this->request->getQuery('id');
+                if ($userId) {
+                    return $this->redirect(['controller' => 'users', 'action' => 'view', $userId]);
+                }
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The program could not be saved. Please, try again.'));

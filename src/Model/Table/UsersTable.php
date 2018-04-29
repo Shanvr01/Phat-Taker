@@ -49,10 +49,9 @@ class UsersTable extends Table
         $this->hasMany('Measurements', [
             'foreignKey' => 'user_id'
         ]);
-        $this->belongsToMany('Programs', [
-            'foreignKey' => 'user_id',
-            'targetForeignKey' => 'program_id',
-            'joinTable' => 'users_programs'
+        $this->hasMany('Programs', [
+            'foreignKey' => 'client_id',
+            'className' => 'Programs'
         ]);
     }
 

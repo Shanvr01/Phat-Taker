@@ -22,7 +22,8 @@
             echo $this->Form->control('title');
             echo $this->Form->control('description');
             echo $this->Form->input('trainer_id', ['type' => 'select', 'empty' => '-- Select Trainer --', 'options' => $users['trainer']]);
-            echo $this->Form->input('client_id', ['type' => 'select', 'empty' => '-- Select Athlete --', 'options' => $users['athlete']]);
+            echo $this->Form->label('client_id', 'Athlete', ['class' => $this->request->getQuery('id') ? 'hide' : false]);
+            echo $this->Form->control('client_id', ['label' => false, 'options' => $users['athlete'], 'default' => $this->request->getQuery('id'), 'class' => $this->request->getQuery('id') ? 'hide' : false]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
